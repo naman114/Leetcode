@@ -1,19 +1,21 @@
 // TC: O(N)
-// SC: O(N)
+// SC: O(1)
 class Solution {
 public:
     int pivotIndex(vector<int>& nums) {
-        vector<int> prefL = nums, prefR = nums;
-        
         int n = nums.size();
-        for(int i = 1; i < n; ++i){
-            prefL[i] += prefL[i - 1];
-            prefR[n - i - 1] += prefR[n - i];
-        }
+        
+        int sumL = 0;
+        int sumR = 0;
+        for(int i = 0; i < n; ++i) sumR += nums[i];
         
         for(int i = 0; i < n; ++i){
-            if(prefL[i] == prefR[i])
+            sumL += nums[i];
+            
+            if(sumL == sumR)
                 return i;
+            
+            sumR -= nums[i];
         }
         
         return -1;
