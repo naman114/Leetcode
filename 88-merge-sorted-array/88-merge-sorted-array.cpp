@@ -15,8 +15,8 @@ public:
                 nums1[k--] = nums2[j--];
         }
         
-        while(i >= 0)
-            nums1[k--] = nums1[i--];
+        // Since nums1 contains its elements already, 
+        // we just need to move remaining numbers from nums2 to nums 1
         
         while(j >= 0)
             nums1[k--] = nums2[j--];
