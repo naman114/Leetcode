@@ -1,3 +1,5 @@
+// TC: O(N^2)
+// SC: O(no of triplets)
 class Solution {
 public:
     vector<vector<int>> twoSum(vector<int> &nums, int target, int start){
@@ -8,8 +10,11 @@ public:
             int sum = nums[lo] + nums[high];
             if(sum == target){
                 ans.push_back({nums[lo], nums[high]});
+                
+                // Reason for the while loops below: [-2,0,0,2,2]
                 while(lo < high && nums[lo] == nums[lo + 1]) lo++;
                 while(lo < high && nums[high] == nums[high - 1]) high--;
+                
                 lo++;
                 high--;
             }
@@ -26,7 +31,6 @@ public:
         vector<vector<int>> ans;
         
         for(int i = 0; i < nums.size(); ++i){
-            cout<<i<<endl;
             vector<vector<int>> res = twoSum(nums, -nums[i], i + 1);
             if(res.size()){
                 for(auto v: res)
