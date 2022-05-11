@@ -1,5 +1,30 @@
 //TC: O(N)
 //SC: O(1)
+
+// One pass
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n, 1);
+        
+        int pL = 1, pR = 1;
+        
+        for(int i = 0; i < n; ++i){
+            // For the first element, pL is 1 i.e. nothing
+            ans[i] *= pL;
+            pL *= nums[i];
+            ans[n - i - 1] *= pR;
+            pR *= nums[n - i - 1];
+        }
+        
+        return ans;
+    }
+};
+
+/*
+
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
@@ -23,6 +48,7 @@ public:
     }
 };
 
+*/
 
 /*
 // TC: O(N)
