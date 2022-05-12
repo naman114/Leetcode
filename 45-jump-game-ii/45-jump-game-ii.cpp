@@ -1,3 +1,5 @@
+// TC: O(N^2)
+// SC: O(N)
 class Solution {
 public:
     int jump(vector<int>& nums) {
@@ -10,6 +12,7 @@ public:
             for(int j = 1; j <= nums[i] && i + j < n; ++j){
                 mn = min(mn, dp[i + j]);
             }
+            // if we can reach the end
             if(mn != INT_MAX)
                 dp[i] = 1 + mn;
         }
