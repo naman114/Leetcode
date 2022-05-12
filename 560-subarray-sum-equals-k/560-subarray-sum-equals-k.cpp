@@ -16,7 +16,7 @@ public:
         for(int num: nums){
             pSum += num;
             
-            if(ump.count(pSum - k))
+            if(ump.find(pSum - k) != ump.end())
                 cnt += ump[pSum - k];
             
             ump[pSum]++;
