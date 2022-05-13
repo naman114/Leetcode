@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool solve(vector<vector<char>>& board, int r, int c, string word, int idx) {
+    bool solve(vector<vector<char>>& board, int r, int c, string &word, int idx) {
         int rows = board.size(), cols = board[0].size(), n = word.length();
         
         if(idx == n) return true;
