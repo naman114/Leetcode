@@ -1,3 +1,6 @@
+// TC: O(2^N)
+// SC: nC0 + nC1 + .. + nCn = O(2^N)
+
 class Solution {
 public:
     vector<vector<int>> solve(vector<int>& nums, int idx) {
