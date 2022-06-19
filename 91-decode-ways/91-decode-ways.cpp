@@ -1,3 +1,38 @@
+/*
+TC: O(N)
+SC: O(1)
+*/
+class Solution {
+public:
+    int numDecodings(string s) {
+        int n = s.length();
+        
+        int a = 1, b = 0;
+        
+        for(int i = n - 1; i >= 0; --i){
+            int temp = 0;
+            if(s[i] != '0'){
+                temp += a;
+            }
+            
+            if(i + 1 < n){
+                int num = stoi(s.substr(i, 2));
+            
+                if(num >= 10 && num <= 26) temp += b;
+            }
+            
+            b = a;
+            a = temp;
+        }
+        
+        return a;
+    }
+};
+
+/*
+Bottom Up
+TC: O(N)
+SC: O(N)
 class Solution {
 public:
     int numDecodings(string s) {
@@ -23,9 +58,11 @@ public:
         return dp[0];
     }
 };
+*/
 
 /*
 Rec + Memo
+Top Down
 TC: O(N)
 SC: O(N)
 
