@@ -1,4 +1,35 @@
 class Solution {
+public:
+    int numDecodings(string s) {
+        int n = s.length();
+        
+        vector<int> dp(n + 2);
+        dp[n + 1] = 0;
+        dp[n] = 1;
+        
+        
+        for(int i = n - 1; i >= 0; --i){
+            if(s[i] != '0'){
+                dp[i] += dp[i + 1];
+            }
+            
+            if(i + 1 < n){
+                int num = stoi(s.substr(i, 2));
+            
+                if(num >= 10 && num <= 26) dp[i] += dp[i + 2];
+            }
+        }
+        
+        return dp[0];
+    }
+};
+
+/*
+Rec + Memo
+TC: O(N)
+SC: O(N)
+
+class Solution {
     vector<int> dp;
 public:
     int solve(string &s, int idx){
@@ -28,3 +59,4 @@ public:
         return solve(s, 0);
     }
 };
+*/
