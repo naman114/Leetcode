@@ -1,9 +1,36 @@
 /*
+TC: O(N)
+SC: O(1)
+*/
+class Solution {
+public:
+    int climbStairs(int n) {
+        int a = 1, b = 1; // 0th step, 1st step
+        
+        if(n == 1) return 1;
+            
+        int c;
+        for(int i = 1; i < n; ++i){
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        
+        return c;
+    }
+};
+
+/*
 Recurrence Relation
 dp[i] = dp[i - 1] + dp[i - 2]
 i == 0 return 1;
 i < 0 return 0;
 */
+/*
+Recursion + Memo
+TC: O(N)
+SC: O(N)
+
 class Solution {
 public:
     int solve(int n, vector<int> &dp){
@@ -19,6 +46,7 @@ public:
         return solve(n, dp);
     }
 };
+*/
 
 /*
 Permutations
