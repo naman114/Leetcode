@@ -1,4 +1,7 @@
 /*
+O(N^3): 3 nested for loops (i to n, j=i to n, k=i to j)
+O(N^2): Take sum = 0 in outer loop and keep adding a[j] to it
+
 TC: O(N)
 SC: O(1)
 
