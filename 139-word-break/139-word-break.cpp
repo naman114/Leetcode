@@ -9,8 +9,9 @@ public:
         
         if(dp[start] != -1) return dp[start];
         
+        string cur_string = "";
         for(int i = start; i < n; ++i){
-            string cur_string = s.substr(start, i - start + 1);
+            cur_string += s[i];
             
             if(us.count(cur_string)){
                 if(solve(s, i + 1)) return dp[start] = true;
