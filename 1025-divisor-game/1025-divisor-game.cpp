@@ -1,3 +1,7 @@
+/*
+TC: O(n root(n))
+SC: O(N)
+*/
 class Solution {
 public:
     vector<int> getDiv(int n){
@@ -30,7 +34,8 @@ public:
                 }
             }
         }
-
+        
+        for(int i: dp) cout<<i<<endl;
         return dp[n];    
     }
 };
