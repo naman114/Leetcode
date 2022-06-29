@@ -18,10 +18,16 @@ public:
             }
             
             if(pos != -1){
-                vector<int> to_move = p[i];
-                auto it = p.begin() + pos;
-                p.erase(p.begin() + i);
-                p.insert(p.begin() + pos, to_move);
+                // vector<int> to_move = p[i];
+                // auto it = p.begin() + pos;
+                // p.erase(p.begin() + i);
+                // p.insert(p.begin() + pos, to_move);
+                
+                int idx = i;
+                while(idx != pos){
+                    swap(p[idx], p[idx - 1]);
+                    idx--;
+                }
             }
         }
         
