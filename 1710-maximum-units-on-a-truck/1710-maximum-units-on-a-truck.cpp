@@ -23,15 +23,8 @@ public:
          return ans;
     }
     
-/*
-2,5
-3,9
-4,7
-5,10
-
-10 + 27 + 28 + 10 
-1
-*/
+// 0-1 Knapsack variation
+// But the constraints are too big
 /*
     int maximumUnits(vector<vector<int>>& items, int wt) {
         int n = items.size();
