@@ -30,7 +30,7 @@ public:
         int sum = 0;
         
         for(int num: ans){
-            cout<<num<<' ';
+            // cout<<num<<' ';
             sum += num;
         }
         
