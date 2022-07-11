@@ -24,7 +24,7 @@ class Solution{
 	        }
 	    }
 	    
-	    return (dp[M][V] == INT_MAX - 1 ? -1 : dp[M][V]);
+	    return (dp[M][V] >= INT_MAX - 1 ? -1 : dp[M][V]);
 	} 
 	  
 };
