@@ -8,6 +8,16 @@ class Solution{
 	public:
 	int minCoins(int coins[], int M, int V) 
 	{ 
+	    vector<int> dp(V + 1, 1e9 + 5);
+	    dp[0] = 0;
+	    for(int i = 1; i <= V; ++i){
+	        for(int j = 0; j < M; ++j){
+	            if(i - coins[j] >= 0)
+	                dp[i] = min(dp[i - coins[j]] + 1, dp[i]);
+	        }
+	    }
+	    return dp[V] == 1e9 + 5 ? -1 : dp[V];
+	    /*
 	    int dp[M + 1][V + 1];
 	    
 	    for(int idx = 0; idx <= M; ++idx){
@@ -25,6 +35,7 @@ class Solution{
 	    }
 	    
 	    return (dp[M][V] >= INT_MAX - 1 ? -1 : dp[M][V]);
+	    */
 	} 
 	  
 };
