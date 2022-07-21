@@ -52,7 +52,11 @@ public:
             else
                 addFirst(revHead, revTail, temp->val);
             idx++;
+            
+            ListNode* todelete = temp;
             temp = temp->next;
+            
+            delete todelete;
         }
         
         if(ansLeftTail) ansLeftTail->next = revHead;
