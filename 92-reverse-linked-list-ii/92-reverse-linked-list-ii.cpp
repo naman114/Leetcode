@@ -8,6 +8,11 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+/*
+TC: O(N) - one pass
+SC: O(1)
+*/
 class Solution {
 public:
     void addFirst(ListNode* &head, ListNode* &tail, int val){
