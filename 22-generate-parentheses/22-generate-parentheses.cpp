@@ -13,6 +13,8 @@ public:
         
         for(string s: open) res.push_back(s);
         
+        // Ensures that the parantheses are in order
+        // Without this condition, it will put them in any order i.e. ()())( would be printed as well
         if(osf > csf){
             vector<string> closed = solve(ans + ')', osf, csf + 1, n);
             for(string s: closed) res.push_back(s);
