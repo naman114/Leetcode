@@ -1,4 +1,7 @@
 /*
+Kth largest: min heap and insert greater
+Kth smallest: max heap and insert smaller
+
 TC: O(N^2 log(K))
 SC: O(K)
 */
