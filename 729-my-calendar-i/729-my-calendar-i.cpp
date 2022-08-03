@@ -1,3 +1,29 @@
+/*
+TC: O(queries * log(events))
+SC: O(events)
+*/
+
+class MyCalendar {
+    map<int, int> mp;
+    // Stores end, start
+public:
+    MyCalendar() {
+        
+    }
+    
+    bool book(int start, int end) {
+        auto next = mp.upper_bound(start);
+        if(next != mp.end() && end > next->second) return false;
+        mp[end] = start;
+        return true;
+    }
+};
+
+/*
+
+TC: O(queries * events)
+SC: O(events)
+
 class MyCalendar {
     vector<pair<int, int>> events;
 public:
@@ -14,6 +40,7 @@ public:
         return true;
     }
 };
+*/
 
 /**
  * Your MyCalendar object will be instantiated and called as such:
