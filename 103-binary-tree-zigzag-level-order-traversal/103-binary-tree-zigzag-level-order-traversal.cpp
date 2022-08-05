@@ -10,6 +10,59 @@
  * };
  */
 
+// 2 STACKS: ACTUALLY TRAVERSING IN ZIG ZAG FASHION
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>> ans;
+        
+        if(!root) return ans;
+        
+        stack<TreeNode*> LR;
+        stack<TreeNode*> RL;
+        
+        LR.push(root);
+        
+        while(!LR.empty() || !RL.empty()){
+            vector<int> lvl;
+            
+            while(!LR.empty()){
+                TreeNode* node = LR.top();
+                LR.pop();
+                
+                lvl.push_back(node->val);
+                
+                if(node->left) RL.push(node->left);
+                if(node->right) RL.push(node->right);
+            }
+            
+            if(lvl.size() > 0){
+                ans.push_back(lvl);
+                lvl.clear();
+            }
+            
+            while(!RL.empty()){
+                TreeNode* node = RL.top();
+                RL.pop();
+                
+                lvl.push_back(node->val);
+                
+                if(node->right) LR.push(node->right);
+                if(node->left) LR.push(node->left);
+            }
+            
+            if(lvl.size() > 0)
+                ans.push_back(lvl);
+        }
+        
+        return ans;
+    }
+};
+
+
+/*
+*****WITHOUT REVERSING*****
+
 class Solution {
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
@@ -46,9 +99,10 @@ public:
         return ans;
     }
 };
+*/
 
 /*
-Reversing the vector
+*****Reversing the vector*****
 
 class Solution {
 public:
