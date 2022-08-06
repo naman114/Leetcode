@@ -9,6 +9,24 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+class Solution {
+public:
+    bool areMirrorImages(TreeNode* root1, TreeNode* root2){
+        // NULL check: If either is NULL, both should be NULL
+        if(root1 == NULL || root2 == NULL) return root1 == root2;
+        
+        // Value check
+        if(root1->val != root2->val) return false;
+        
+        return areMirrorImages(root1->left, root2->right) && areMirrorImages(root1->right, root2->left);
+    }
+    bool isSymmetric(TreeNode* root) {
+        return areMirrorImages(root, root);
+    }
+};
+
+/*
 class Solution {
 public:
     bool areMirrorImages(TreeNode* root1, TreeNode* root2){
@@ -29,3 +47,4 @@ public:
         return areMirrorImages(root, root);
     }
 };
+*/
