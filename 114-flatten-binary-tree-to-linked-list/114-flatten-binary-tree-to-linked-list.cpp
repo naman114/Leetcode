@@ -9,6 +9,21 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+/*
+TC: O(N)
+SC: O(N) when the tree is skewed
+
+If the linked list id to be formed on the left child:
+    root->left = prev;
+    root->right = NULL;
+    prev = root;
+
+What happens if you visit left first and then right?
+    1 5 6 2 4 3
+
+Direction of traversal is opposite to the resultant flatenned LL
+*/
+
 class Solution {
 public:
     void flatten(TreeNode* root, TreeNode* &prev){
